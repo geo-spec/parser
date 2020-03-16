@@ -45,7 +45,11 @@ cookie = [{'name': 'i', 'value': 'VtcwfRkC4FOkWCcB5otW46enEMQ53dtrRLKjOX7Rv2b6oJ
 cookie = [{'name': 'i', 'value': 'PwOucaHat1J8CXfksa5s7YZvis4INabTaK2I1sPNq44N80IZKY5MeG4D1UUbPX47CQNTE10O39oy4n7BNOZCny4fDQo=', 'domain': '.yandex.ru', 'path': '/', 'expires': 1899467943, 'size': 93, 'httpOnly': True, 'secure': True, 'session': False}, {'name': 'L', 'value': 'XF1RRgRSTlx7SHRgVmlNbWEEWFZZcUBZNQocFV5HJw==.1584107942.14169.391126.0dd9b61efa0dcce28a1e04bb8c93d8af', 'domain': '.yandex.ru', 'path': '/', 'expires': 2147483647.484203, 'size': 102, 'httpOnly': False, 'secure': False, 'session': False}, {'name': 'ys', 'value': 'udn.cDpnZW90aXBz', 'domain': '.yandex.ru', 'path': '/', 'expires': -1, 'size': 18, 'httpOnly': False, 'secure': True, 'session': True}, {'name': 'sessionid2', 'value': '3:1584107942.5.0.1584107942494:CTjesA:6.1|196471750.0.2|213907.520767.2f9yRtrCuiLoVPN3PblSCQ5jCj8', 'domain': '.yandex.ru', 'path': '/', 'expires': 2147483647.484033, 'size': 107, 'httpOnly': True, 'secure': True, 'session': False}, {'name': 'ymex', 'value': '1899467937.yrts.1584107937', 'domain': '.yandex.ru', 'path': '/', 'expires': 1615643937.359148, 'size': 30, 'httpOnly': False, 'secure': True, 'session': False}, {'name': '_ym_wasSynced', 'value': '%7B%22time%22%3A1584107937360%2C%22params%22%3A%7B%22eu%22%3A0%7D%2C%22bkParams%22%3A%7B%7D%7D', 'domain': '.yandex.ru', 'path': '/', 'expires': 1584211617, 'size': 107, 'httpOnly': False, 'secure': False, 'session': False}, {'name': 'gdpr', 'value': '0', 'domain': '.yandex.ru', 'path': '/', 'expires': -1, 'size': 5, 'httpOnly': False, 'secure': False, 'session': True}, {'name': 'mda', 'value': '0', 'domain': '.yandex.ru', 'path': '/', 'expires': 1646315937, 'size': 4, 'httpOnly': False, 'secure': False, 'session': False}, {'name': '_ym_visorc_784657', 'value': 'b', 'domain': '.yandex.ru', 'path': '/', 'expires': 1584109737, 'size': 18, 'httpOnly': False, 'secure': False, 'session': False}, {'name': '_ym_d', 'value': '1584107937', 'domain': '.yandex.ru', 'path': '/', 'expires': 1615643937, 'size': 15, 'httpOnly': False, 'secure': False, 'session': False}, {'name': '_ym_uid', 'value': '1584107937285461052', 'domain': '.yandex.ru', 'path': '/', 'expires': 1615643937, 'size': 26, 'httpOnly': False, 'secure': False, 'session': False}, {'name': 'yuidss', 'value': '255208111584107936', 'domain': '.yandex.ru', 'path': '/', 'expires': 1899467937.359139, 'size': 24, 'httpOnly': False, 'secure': True, 'session': False}, {'name': 'yp', 'value': '1899467942.udn.cDpnZW90aXBz', 'domain': '.yandex.ru', 'path': '/', 'expires': 2147483647.484127, 'size': 29, 'httpOnly': False, 'secure': True, 'session': False}, {'name': '_ym_isad', 'value': '2', 'domain': '.yandex.ru', 'path': '/', 'expires': 1584179937, 'size': 9, 'httpOnly': False, 'secure': False, 'session': False}, {'name': 'Session_id', 'value': '3:1584107942.5.0.1584107942494:CTjesA:6.1|196471750.0.2|213907.584641.n_6aBvvYa7LmcPhONHX00u6OetM', 'domain': '.yandex.ru', 'path': '/', 'expires': 2147483647.483948, 'size': 107, 'httpOnly': True, 'secure': True, 'session': False}, {'name': 'yandex_login', 'value': 'geotips', 'domain': '.yandex.ru', 'path': '/', 'expires': 2147483647.484242, 'size': 19, 'httpOnly': False, 'secure': True, 'session': False}, {'name': 'yandexuid', 'value': '255208111584107936', 'domain': '.yandex.ru', 'path': '/', 'expires': 1899467937.35912, 'size': 27, 'httpOnly': False, 'secure': True, 'session': False}]
 cookie = [{'name': 'i', 'value': 'B4Rq1xRE7REPEFhp6gOf5NUPouslfr6yuuF8kkZg00a4K3pFyE3iR07mHow1gCRXk5YQi0Zr2QoOKB8iA07IcRNSCO8=', 'domain': '.yandex.ru', 'path': '/', 'expires': 1899468666, 'size': 93, 'httpOnly': True, 'secure': True, 'session': False}, {'name': 'L', 'value': 'XF1RRg1SSlp8S3JlVGVFZGEPV1NWdkFYNQAfDkFeOgQ0VFptZw==.1584108665.14169.350380.79b6c5180f870e145ab139b258654b1d', 'domain': '.yandex.ru', 'path': '/', 'expires': 2147483647.863607, 'size': 110, 'httpOnly': False, 'secure': False, 'session': False}, {'name': 'ys', 'value': 'udn.cDpnb2xvdmluaXNhajgz', 'domain': '.yandex.ru', 'path': '/', 'expires': -1, 'size': 26, 'httpOnly': False, 'secure': True, 'session': True}, {'name': 'sessionid2', 'value': '3:1584108665.5.0.1584108665774:CTjesA:1d.1|892202102.0.2|213909.654895._GODsvk4wlfFYCSAPDowpJqU7K8', 'domain': '.yandex.ru', 'path': '/', 'expires': 2147483647.86355, 'size': 108, 'httpOnly': True, 'secure': True, 'session': False}, {'name': 'ymex', 'value': '1899468660.yrts.1584108660#1899468660.yrtsi.1584108660', 'domain': '.yandex.ru', 'path': '/', 'expires': 1615644660.387122, 'size': 58, 'httpOnly': False, 'secure': True, 'session': False}, {'name': '_ym_wasSynced', 'value': '%7B%22time%22%3A1584108660389%2C%22params%22%3A%7B%22eu%22%3A0%7D%2C%22bkParams%22%3A%7B%7D%7D', 'domain': '.yandex.ru', 'path': '/', 'expires': 1584212340, 'size': 107, 'httpOnly': False, 'secure': False, 'session': False}, {'name': 'gdpr', 'value': '0', 'domain': '.yandex.ru', 'path': '/', 'expires': -1, 'size': 5, 'httpOnly': False, 'secure': False, 'session': True}, {'name': 'mda', 'value': '0', 'domain': '.yandex.ru', 'path': '/', 'expires': 1646316660, 'size': 4, 'httpOnly': False, 'secure': False, 'session': False}, {'name': '_ym_visorc_784657', 'value': 'b', 'domain': '.yandex.ru', 'path': '/', 'expires': 1584110460, 'size': 18, 'httpOnly': False, 'secure': False, 'session': False}, {'name': '_ym_d', 'value': '1584108660', 'domain': '.yandex.ru', 'path': '/', 'expires': 1615644660, 'size': 15, 'httpOnly': False, 'secure': False, 'session': False}, {'name': '_ym_uid', 'value': '1584108660510375538', 'domain': '.yandex.ru', 'path': '/', 'expires': 1615644660, 'size': 26, 'httpOnly': False, 'secure': False, 'session': False}, {'name': 'yuidss', 'value': '604344511584108659', 'domain': '.yandex.ru', 'path': '/', 'expires': 1899468660.387106, 'size': 24, 'httpOnly': False, 'secure': True, 'session': False}, {'name': 'yp', 'value': '1899468665.udn.cDpnb2xvdmluaXNhajgz', 'domain': '.yandex.ru', 'path': '/', 'expires': 2147483647.863571, 'size': 37, 'httpOnly': False, 'secure': True, 'session': False}, {'name': '_ym_isad', 'value': '2', 'domain': '.yandex.ru', 'path': '/', 'expires': 1584180660, 'size': 9, 'httpOnly': False, 'secure': False, 'session': False}, {'name': 'Session_id', 'value': '3:1584108665.5.0.1584108665774:CTjesA:1d.1|892202102.0.2|213909.309723.ldE339xV6-wIqj1Zqr4jqPBTtVY', 'domain': '.yandex.ru', 'path': '/', 'expires': 2147483647.86353, 'size': 108, 'httpOnly': True, 'secure': True, 'session': False}, {'name': 'yandex_login', 'value': 'golovinisaj83', 'domain': '.yandex.ru', 'path': '/', 'expires': 2147483647.863617, 'size': 25, 'httpOnly': False, 'secure': True, 'session': False}, {'name': 'yandexuid', 'value': '604344511584108659', 'domain': '.yandex.ru', 'path': '/', 'expires': 1899468660.387088, 'size': 27, 'httpOnly': False, 'secure': True, 'session': False}]
 
+cookie = [{'name': 'i', 'value': '0/YZf+OMjgA6mYvvFykqT1cHZfIt8uLOk3GFEewUhvciUMhWu7SiTRoCq+hj50C6yG/yVil/CXQZQeoPlTIkrKhIpc0=', 'domain': '.yandex.ru', 'path': '/', 'expires': 1899719853, 'size': 93, 'httpOnly': True, 'secure': True, 'session': False}, {'name': 'L', 'value': 'AHYGV39RcEVhcwFdfEgLfUALW15HQFIMJBwWQSFIIQ==.1584359853.14172.390115.f76591b377ad37e1d2da08a98ef79422', 'domain': '.yandex.ru', 'path': '/', 'expires': 2147483647.637283, 'size': 102, 'httpOnly': False, 'secure': False, 'session': False}, {'name': 'ys', 'value': 'udn.cDpnZW90aXBz', 'domain': '.yandex.ru', 'path': '/', 'expires': -1, 'size': 18, 'httpOnly': False, 'secure': True, 'session': True}, {'name': 'sessionid2', 'value': '3:1584359853.5.0.1584359853446:u5XpwQ:4b.1|196471750.0.2|214051.732807.9MTvxH6mJrGIbHK8LD8bZ4GU_kU', 'domain': '.yandex.ru', 'path': '/', 'expires': 2147483647.637208, 'size': 108, 'httpOnly': True, 'secure': True, 'session': False}, {'name': 'ymex', 'value': '1899719847.yrts.1584359847#1899719847.yrtsi.1584359847', 'domain': '.yandex.ru', 'path': '/', 'expires': 1615895847.94786, 'size': 58, 'httpOnly': False, 'secure': True, 'session': False}, {'name': '_ym_wasSynced', 'value': '%7B%22time%22%3A1584359847952%2C%22params%22%3A%7B%22eu%22%3A0%7D%2C%22bkParams%22%3A%7B%7D%7D', 'domain': '.yandex.ru', 'path': '/', 'expires': 1584463527, 'size': 107, 'httpOnly': False, 'secure': False, 'session': False}, {'name': 'gdpr', 'value': '0', 'domain': '.yandex.ru', 'path': '/', 'expires': -1, 'size': 5, 'httpOnly': False, 'secure': False, 'session': True}, {'name': 'mda', 'value': '0', 'domain': '.yandex.ru', 'path': '/', 'expires': 1646567847, 'size': 4, 'httpOnly': False, 'secure': False, 'session': False}, {'name': '_ym_visorc_784657', 'value': 'b', 'domain': '.yandex.ru', 'path': '/', 'expires': 1584361648, 'size': 18, 'httpOnly': False, 'secure': False, 'session': False}, {'name': '_ym_d', 'value': '1584359848', 'domain': '.yandex.ru', 'path': '/', 'expires': 1615895847, 'size': 15, 'httpOnly': False, 'secure': False, 'session': False}, {'name': '_ym_uid', 'value': '1584359848800966771', 'domain': '.yandex.ru', 'path': '/', 'expires': 1615895847, 'size': 26, 'httpOnly': False, 'secure': False, 'session': False}, {'name': 'yuidss', 'value': '228563761584359847', 'domain': '.yandex.ru', 'path': '/', 'expires': 1899719847.947834, 'size': 24, 'httpOnly': False, 'secure': True, 'session': False}, {'name': 'yp', 'value': '1899719853.udn.cDpnZW90aXBz', 'domain': '.yandex.ru', 'path': '/', 'expires': 2147483647.637251, 'size': 29, 'httpOnly': False, 'secure': True, 'session': False}, {'name': '_ym_isad', 'value': '2', 'domain': '.yandex.ru', 'path': '/', 'expires': 1584431848, 'size': 9, 'httpOnly': False, 'secure': False, 'session': False}, {'name': 'Session_id', 'value': '3:1584359853.5.0.1584359853446:u5XpwQ:4b.1|196471750.0.2|214051.570215.MSLCYlu4VfTpZr4uwpk-8xj7uSY', 'domain': '.yandex.ru', 'path': '/', 'expires': 2147483647.637149, 'size': 108, 'httpOnly': True, 'secure': True, 'session': False}, {'name': 'yandex_login', 'value': 'geotips', 'domain': '.yandex.ru', 'path': '/', 'expires': 2147483647.637304, 'size': 19, 'httpOnly': False, 'secure': True, 'session': False}, {'name': 'yandexuid', 'value': '228563761584359847', 'domain': '.yandex.ru', 'path': '/', 'expires': 1899719847.947804, 'size': 27, 'httpOnly': False, 'secure': True, 'session': False}]
+
+offset = 1000
 def get_queries():
+    global offset
     with psycopg2.connect(PG_CONN_STR) as conn:
 
         with conn.cursor() as cur:
@@ -53,10 +57,11 @@ def get_queries():
                 SELECT
                     query
                 FROM queries
-                LIMIT 100
+                LIMIT 20
+                OFFSET {}
                 -- WHERE core_id = %s
                     -- AND processed = FALSE
-            ''') #, (semantic_core_id,))
+            '''.format(offset)) #, (semantic_core_id,))
             db_result = cur.fetchall()
 
         queries = []
@@ -69,6 +74,8 @@ def get_queries():
         result = '"' + result.replace(" ", " !")  + '"'
         print(result)
 
+        offset += 20
+
 
         return result
 
@@ -78,7 +85,7 @@ def get_queries():
 
 async def _login():
     args.append('--proxy-server={}'.format('193.233.149.187:44769'))
-    browser = await launch({'headless': True, 'args': args})
+    browser = await launch({'headless': False, 'args': args})
     page = (await browser.pages())[0]
 
     await stealth(page)
@@ -99,7 +106,8 @@ async def _login():
     )
     # await login_btn.screenshot({'path': 'btn.png'})
     await asyncio.sleep(1)
-    await login_field.type('golovinisaj83@yandex.ru')
+    # await login_field.type('golovinisaj83@yandex.ru')
+    await login_field.type('geotips')
     await asyncio.sleep(1)
     await asyncio.gather(
         login_btn.click(),
@@ -112,7 +120,9 @@ async def _login():
         page.waitForSelector('div.passp-sign-in-button > button.passp-form-button', {'visible': True})
     )
     await asyncio.sleep(1)
-    await pwd_field.type('d5JCs39o3iK9')
+    # await pwd_field.type('d5JCs39o3iK9')
+    await pwd_field.type('pEnoplast')
+
     await asyncio.sleep(1)
     await asyncio.gather(
         login_btn.click(),
@@ -156,6 +166,8 @@ async def clear_input_text(page: Page, input_node: ElementHandle):
 
 
 async def main():
+    # await _login()
+    # sys.exit()
     words = get_queries()
     # sys.exit()
     # browser = await launch()
@@ -182,7 +194,9 @@ async def main():
     # await page.goto('https://www.google.com/search?q=check+ip&oq=check+ip&aqs=chrome..69i57j0l7.6686j0j1&sourceid=chrome&ie=UTF-8')
     # await asyncio.sleep(50)
     await page.goto('https://direct.yandex.ru/registered/main.pl?cmd=advancedForecast')
-    # await asyncio.sleep(5)
+    await asyncio.sleep(3)
+
+    await asyncio.sleep(1)
     await page.screenshot({'path': '1.png'})
 
     query_field, submit_btn = await asyncio.gather(
@@ -221,6 +235,39 @@ async def main():
         page.waitForSelector('tbody.b-advanced-forecast__result-table__table-body')
     )
     print('sleep')
+
+    await asyncio.sleep(20)
+
+    for i in range(0, 10):
+        print(i)
+        words = get_queries()
+
+        await page.mouse.move(random(), random())
+        await page.goto('https://direct.yandex.ru/registered/main.pl?cmd=advancedForecast')
+        await asyncio.sleep(3)
+        await asyncio.sleep(1)
+
+        query_field, submit_btn = await asyncio.gather(
+            page.waitForSelector('#ad-words'),
+            page.waitForSelector('input.b-advanced-forecast__submit-button')
+        )
+
+
+
+        # await asyncio.sleep(5)
+        await clear_input_text(page, query_field)
+        await asyncio.sleep(5)
+        await page.mouse.move(random(), random())
+        await query_field.type(words)
+        await asyncio.gather(
+            submit_btn.click(),
+            page.waitForSelector('tbody.b-advanced-forecast__result-table__table-body')
+        )
+
+        await page.mouse.move(random(), random())
+        await asyncio.sleep(10)
+        await page.screenshot({'path': 'result/wordstat{}.png'.format(datetime.now())})
+
 
 
     await asyncio.sleep(60)
