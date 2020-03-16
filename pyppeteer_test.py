@@ -53,7 +53,7 @@ def get_queries():
                 SELECT
                     query
                 FROM queries
-                LIMIT 2
+                LIMIT 100
                 -- WHERE core_id = %s
                     -- AND processed = FALSE
             ''') #, (semantic_core_id,))
@@ -67,21 +67,12 @@ def get_queries():
         result ="\"\n\"!".join(queries)
 
         result = '"' + result.replace(" ", " !")  + '"'
-
         print(result)
-        #
-        # sys.exit()
+
 
         return result
 
 
-        print(result)
-        return result
-
-
-        sys.exit()
-
-        return result
 
 
 
@@ -188,10 +179,10 @@ async def main():
     await page.authenticate({'username': '8mVwslYhZl',
                              'password': 'geotips'})
 
-    await page.goto('https://www.google.com/search?q=check+ip&oq=check+ip&aqs=chrome..69i57j0l7.6686j0j1&sourceid=chrome&ie=UTF-8')
-    await asyncio.sleep(50)
+    # await page.goto('https://www.google.com/search?q=check+ip&oq=check+ip&aqs=chrome..69i57j0l7.6686j0j1&sourceid=chrome&ie=UTF-8')
+    # await asyncio.sleep(50)
     await page.goto('https://direct.yandex.ru/registered/main.pl?cmd=advancedForecast')
-    #await asyncio.sleep(5)
+    # await asyncio.sleep(5)
     await page.screenshot({'path': '1.png'})
 
     query_field, submit_btn = await asyncio.gather(
@@ -221,16 +212,18 @@ async def main():
 
     await page.screenshot({'path': '5555.png', 'fullPage': True})
     print('драма-2')
-    await submit_btn.click()
+    # await submit_btn.click()
     print('драма - 3')
-    await page.screenshot({'path': '65555.png', 'fullPage': True})
-    await page.screenshot({'path': '5555.png', 'fullPage': True})
+   # await page.screenshot({'path': '65555.png', 'fullPage': True})
+    # await page.screenshot({'path': '5555.png', 'fullPage': True})
     await asyncio.gather(
         submit_btn.click(),
         page.waitForSelector('tbody.b-advanced-forecast__result-table__table-body')
     )
     print('sleep')
-    await asyncio.sleep(3)
+
+
+    await asyncio.sleep(60)
     await page.screenshot({'path': '4444.png'})
 
 
