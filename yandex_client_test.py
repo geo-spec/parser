@@ -37,8 +37,8 @@ async def _build_core_worker() -> None:
     #     except Exception:
     #         logger.error(traceback.format_exc())
 
-    phrases, asscocs = await ws_client._query('"!клавиатура !для !дома"')
-    #phrases, asscocs = await ws_client._query('"!ноутбук"')
+    #phrases, asscocs = await ws_client._query('"!как !объединить !ячейки !в !ворде"')
+    phrases, asscocs = await ws_client._query('"!ноутбук"')
 
     # for anchors in iter(input_q.get, 'STOP'):
     #     amount = len(anchors)

@@ -168,13 +168,17 @@ async def parse_wordstat_page(page: Page) -> Tuple[list, list]:
 
     import re
     print('content - {}'.format(content))
-    p = re.compile('Что искали со словом .+ — ([0-9  ]+) пока.+')
+    p = re.compile('Что искали со словом (.+) — ([0-9  ]+) пока.+')  # not simple symbol space (&nbsp;)
     m = p.match(content)
     print(m.group())
     # 'ab'
     print(m.group(0))
     # 'ab'
-    print(m.group(1))
+    exact_str = m.group(1)
+    print(exact_str)
+    exact_count = exact_str.replace(" ", "")  # not simple symbol space (&nbsp;)
+
+    print('exact_count - {} {}'.format(exact_count, exact_str))
 
     print('content - {}'.format(content))
     await asyncio.sleep(200)
