@@ -139,14 +139,45 @@ DEFAULT_REDIS_CONF = RedisConf(
 
 
 async def parse_wordstat_page(page: Page) -> Tuple[list, list]:
-    phrases_div, assoc_div = await asyncio.gather(
+    phrases_div, assoc_div, info_query = await asyncio.gather(
         page.waitForSelector('div.b-word-statistics__including-phrases', {'visible': True}),
-        page.waitForSelector('div.b-word-statistics__phrases-associations', {'visible': True})
+        page.waitForSelector('div.b-word-statistics__phrases-associations', {'visible': True}),
+        page.waitForSelector('div.b-word-statistics__including-phrases .b-word-statistics__info-wrapper', {'visible': True}),
     )
+
+    PARSE_WORDSTAT_TABLE_F = '''
+        rows => rows.map(row => {
+            const j_row = $(row);
+            const query = j_row.find('a.b-phrase-link__link').text();
+            const count = j_row.find('td.b-word-statistics__td-number').text().replace(/\xa0/gi, '');
+            return [query, count];
+        })
+    '''
+
     phrases, assocs = await asyncio.gather(
         phrases_div.JJeval('tr + tr', PARSE_WORDSTAT_TABLE_F),
         assoc_div.JJeval('tr + tr', PARSE_WORDSTAT_TABLE_F)
     )
+
+    print('phrases_div - {}'.format(phrases_div))
+    print(phrases, assocs)
+    print('phrases - {}'.format(phrases))
+    print('assocs - {}'.format(assocs))
+
+    content = await page.evaluate('(element) => element.textContent', info_query)
+
+    import re
+    print('content - {}'.format(content))
+    p = re.compile('Что искали со словом .+ — ([0-9  ]+) пока.+')
+    m = p.match(content)
+    print(m.group())
+    # 'ab'
+    print(m.group(0))
+    # 'ab'
+    print(m.group(1))
+
+    print('content - {}'.format(content))
+    await asyncio.sleep(200)
     return phrases, assocs
 
 
@@ -198,7 +229,8 @@ class YWordstatClient:
             logger.info(acc_info)
             key = 'lock_' + login
             if not self.redis.setnx(key, self._id):
-                continue
+                print('Login - {} blocked'.format(login))
+                # continue
             if self.redis.sismember(ACCS_BANNED_KEY, login):
                 self.redis.delete(key)
                 continue
