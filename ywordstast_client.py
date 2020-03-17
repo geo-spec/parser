@@ -169,7 +169,7 @@ class YWordstatClient:
         self._page = None
         self._n_rqs = 0
         self.block = block
-        self.headless = headless
+        self.headless = False
         redis_conf = redis_conf or DEFAULT_REDIS_CONF
         self.redis = redis.StrictRedis(
             host=redis_conf.host,
