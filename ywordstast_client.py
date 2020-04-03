@@ -143,6 +143,7 @@ async def parse_wordstat_page(page: Page) -> Tuple[list, list]:
         page.waitForSelector('div.b-word-statistics__including-phrases', {'visible': True}),
         page.waitForSelector('div.b-word-statistics__phrases-associations', {'visible': True}),
         page.waitForSelector('div.b-word-statistics__including-phrases .b-word-statistics__info-wrapper', {'visible': True}),
+        # block Что искали со словом «"!как !объединить !ячейки !в !ворде"» — 548 показов в месяц
     )
 
     PARSE_WORDSTAT_TABLE_F = '''
@@ -163,26 +164,34 @@ async def parse_wordstat_page(page: Page) -> Tuple[list, list]:
     print(phrases, assocs)
     print('phrases - {}'.format(phrases))
     print('assocs - {}'.format(assocs))
+    # info_text = await page.evaluate('(element) => element.textContent', info_query)
 
-    content = await page.evaluate('(element) => element.textContent', info_query)
-
-    import re
-    print('content - {}'.format(content))
-    p = re.compile('Что искали со словом (.+) — ([0-9  ]+) пока.+')  # not simple symbol space (&nbsp;)
-    m = p.match(content)
-    print(m.group())
-    # 'ab'
-    print(m.group(0))
-    # 'ab'
-    exact_str = m.group(1)
-    print(exact_str)
-    exact_count = exact_str.replace(" ", "")  # not simple symbol space (&nbsp;)
-
-    print('exact_count - {} {}'.format(exact_count, exact_str))
-
-    print('content - {}'.format(content))
-    await asyncio.sleep(200)
+    # try:
+    #
+    #
+    #
+    #
+    # import re
+    # print('content - {}'.format(content))
+    # p = re.compile('Что искали со словом (.+) — ([0-9  ]+) пока.+')  # not simple symbol space (&nbsp;)
+    # m = p.match(content)
+    # print(m.group())
+    # # 'ab'
+    # print(m.group(0))
+    # # 'ab'
+    # exact_str = m.group(2)
+    # print(exact_str)
+    # exact_count = exact_str.replace(" ", "")  # not simple symbol space (&nbsp;)
+    #
+    # print('exact_count - {} {}'.format(exact_count, exact_str))
+    #
+    # print('content - {}'.format(content))
+    # exact_query = m.group(1)
+    #
+    # exact = [exact_query, exact_count]
+    # await asyncio.sleep(200)
     return phrases, assocs
+        # , exact
 
 
 async def clear_input_text(page: Page, input_node: ElementHandle):
@@ -197,7 +206,7 @@ class CaptchaError(Exception):
 
 
 class YWordstatClient:
-    def __init__(self, redis_conf: Optional[RedisConf] = None,
+    def __init__(self,
                  headless: bool = True, block: bool = True):
         self._yacc = None
         self._lock_ts = None
@@ -205,14 +214,13 @@ class YWordstatClient:
         self._n_rqs = 0
         self.block = block
         self.headless = False
-        redis_conf = redis_conf or DEFAULT_REDIS_CONF
-        self.redis = redis.StrictRedis(
-            host=redis_conf.host,
-            port=redis_conf.port,
-            db=redis_conf.db,
-            password=redis_conf.password,
-            decode_responses=True
-        )
+        # self.redis = redis.StrictRedis(
+        #     host=redis_conf.host,
+        #     port=redis_conf.port,
+        #     db=redis_conf.db,
+        #     password=redis_conf.password,
+        #     decode_responses=True
+        # )
         self._id = str(uuid4())
 
     def acc_lock_key(self) -> Optional[str]:
@@ -220,43 +228,43 @@ class YWordstatClient:
             return None
         return 'lock_' + self._yacc.login
 
-    def acquire_account_impl(self, change: bool = False) -> bool:
-        if self._yacc is not None:
-            if change:
-                self.release_account()
-            else:
-                return self.check_account()
-        accounts = self.redis.hgetall(ACCS_KEY)
-        if accounts is None:
-            return False
-        for login, acc_info in accounts.items():
-            logger.info(acc_info)
-            key = 'lock_' + login
-            if not self.redis.setnx(key, self._id):
-                print('Login - {} blocked'.format(login))
-                # continue
-            if self.redis.sismember(ACCS_BANNED_KEY, login):
-                self.redis.delete(key)
-                continue
-            self._lock_ts = datetime.now()
-            self.redis.expire(key, ACC_LOCK_TTL)
-            yacc = Account.from_json(acc_info)
-            if yacc.proxy is not None:
-                try:
-                    proxy_json = self.redis.hget('proxies', yacc.proxy)
-                    yacc.proxy = ProxyConf.from_json(proxy_json)
-                except Exception:
-                    logger.error('Unabe to get proxy "{}"'.format(yacc.proxy))
-                    self.redis.delete(key)
-                    continue
-            else:
-                logger.error('Account "{}" has no proxy'.format(login))
-                self.redis.delete(key)
-                continue
-            self._yacc = yacc
-            return True
-        logger.info('Accounts not found')
-        return False
+    # def acquire_account_impl(self, change: bool = False) -> bool:
+    #     if self._yacc is not None:
+    #         if change:
+    #             self.release_account()
+    #         else:
+    #             return self.check_account()
+    #     accounts = self.redis.hgetall(ACCS_KEY)
+    #     if accounts is None:
+    #         return False
+    #     for login, acc_info in accounts.items():
+    #         logger.info(acc_info)
+    #         key = 'lock_' + login
+    #         if not self.redis.setnx(key, self._id):
+    #             print('Login - {} blocked'.format(login))
+    #             # continue
+    #         if self.redis.sismember(ACCS_BANNED_KEY, login):
+    #             self.redis.delete(key)
+    #             continue
+    #         self._lock_ts = datetime.now()
+    #         self.redis.expire(key, ACC_LOCK_TTL)
+    #         yacc = Account.from_json(acc_info)
+    #         if yacc.proxy is not None:
+    #             try:
+    #                 proxy_json = self.redis.hget('proxies', yacc.proxy)
+    #                 yacc.proxy = ProxyConf.from_json(proxy_json)
+    #             except Exception:
+    #                 logger.error('Unabe to get proxy "{}"'.format(yacc.proxy))
+    #                 self.redis.delete(key)
+    #                 continue
+    #         else:
+    #             logger.error('Account "{}" has no proxy'.format(login))
+    #             self.redis.delete(key)
+    #             continue
+    #         self._yacc = yacc
+    #         return True
+    #     logger.info('Accounts not found')
+    #     return False
 
     def mark_captcha(self):
         if self._yacc is None:
@@ -399,15 +407,15 @@ class YWordstatClient:
         self.save_cookies()
         logger.info('Login successful')
 
-    async def acquire_account(self):
-        if self.block:
-            while True:
-                if self.acquire_account_impl():
-                    break
-                await asyncio.sleep(10)
-        else:
-            if not self.acquire_account_impl():
-                raise RuntimeError('No account available')
+    # async def acquire_account(self):
+    #     if self.block:
+    #         while True:
+    #             if self.acquire_account_impl():
+    #                 break
+    #             await asyncio.sleep(10)
+    #     else:
+    #         if not self.acquire_account_impl():
+    #             raise RuntimeError('No account available')
 
     async def get_page(self, new: bool = False) -> Page:
         if self._page is not None:
@@ -418,29 +426,28 @@ class YWordstatClient:
                     logger.error(format_exc())
                 self._page = None
             else:
-                await self.acquire_account()
+                # await self.acquire_account()
                 return self._page
 
-        await self.acquire_account()
-
+        # await self.acquire_account()
         args = ['--no-sandbox']
-        proxy = self._yacc.proxy
-        if proxy is not None:
-            logger.info('User proxy {} {} {}'.format(proxy.host, proxy.username, proxy.password))
-            args.append('--proxy-server={}'.format(proxy.host))
-        browser = await launch({'headless': self.headless, 'args': args})
+
+
+        args.append('--proxy-server={}'.format('193.233.149.187:44769'))
+        browser = await launch({'headless': True, 'args': args})
         page = (await browser.pages())[0]
         await stealth(page)
         await page.setUserAgent(user_agent)
         await page.setViewport(viewport)
-        if proxy is not None:
-            await page.authenticate({'username': proxy.username,
-                                     'password': proxy.password})
+
+        await page.authenticate({'username': '8mVwslYhZl',
+                                 'password': 'geotips'})
+
+        cookies = [{'name': '_ym_visorc_34', 'value': 'w', 'domain': '.yandex.ru', 'path': '/', 'expires': 1585930474, 'size': 14, 'httpOnly': False, 'secure': False, 'session': False}, {'name': 'i', 'value': '+A+LhqNJ8eeG0dx0f/VaQkMO9vpSABK2yrKq5krUidqrekDBrNgnAZOdLHv1Jc5R+xSBmMMLQ/667jNooxhqSmMZ+4Y=', 'domain': '.yandex.ru', 'path': '/', 'expires': 1901288674, 'size': 93, 'httpOnly': True, 'secure': True, 'session': False}, {'name': 'yandex_login', 'value': 'golovinisaj83', 'domain': '.yandex.ru', 'path': '/', 'expires': 2147483647.114974, 'size': 25, 'httpOnly': False, 'secure': True, 'session': False}, {'name': 'fuid01', 'value': '5e8759e268c4c056.0sLzDmD1FR5U8rVaHr2tTUwpx4p4pqh3di4U0UINO2x9Zh7xXMHRCeGK9DEOnZMkaf2Ky0WkgfofNORopLAbhorHr4Au_WKNdoGO2-6qbQmIQv3wLbPOxs_k8pqOctis', 'domain': '.yandex.ru', 'path': '/', 'expires': 1888328674.417169, 'size': 151, 'httpOnly': False, 'secure': False, 'session': False}, {'name': 'ys', 'value': 'udn.cDpnb2xvdmluaXNhajgz', 'domain': '.yandex.ru', 'path': '/', 'expires': -1, 'size': 26, 'httpOnly': False, 'secure': True, 'session': True}, {'name': 'sessionid2', 'value': '3:1585928670.5.0.1585928670082:u5XpwQ:2.1|892202102.0.2|214961.125506.sexkEu1NZwIvZZephBQMIa9j7Po', 'domain': '.yandex.ru', 'path': '/', 'expires': 2147483647.114702, 'size': 107, 'httpOnly': True, 'secure': True, 'session': False}, {'name': 'yp', 'value': '1901288670.udn.cDpnb2xvdmluaXNhajgz', 'domain': '.yandex.ru', 'path': '/', 'expires': 2147483647.114818, 'size': 37, 'httpOnly': False, 'secure': True, 'session': False}, {'name': '_ym_isad', 'value': '2', 'domain': '.yandex.ru', 'path': '/', 'expires': 1586000665, 'size': 9, 'httpOnly': False, 'secure': False, 'session': False}, {'name': 'yandexuid', 'value': '364849941585928664', 'domain': '.yandex.ru', 'path': '/', 'expires': 1901288665.172081, 'size': 27, 'httpOnly': False, 'secure': False, 'session': False}, {'name': '_ym_wasSynced', 'value': '%7B%22time%22%3A1585928665174%2C%22params%22%3A%7B%22eu%22%3A0%7D%2C%22bkParams%22%3A%7B%7D%7D', 'domain': '.yandex.ru', 'path': '/', 'expires': 1586032345, 'size': 107, 'httpOnly': False, 'secure': False, 'session': False}, {'name': 'gdpr', 'value': '0', 'domain': '.yandex.ru', 'path': '/', 'expires': 1617464674, 'size': 5, 'httpOnly': False, 'secure': False, 'session': False}, {'name': 'mda', 'value': '0', 'domain': '.yandex.ru', 'path': '/', 'expires': 1648136665, 'size': 4, 'httpOnly': False, 'secure': False, 'session': False}, {'name': '_ym_visorc_784657', 'value': 'b', 'domain': '.yandex.ru', 'path': '/', 'expires': 1585930465, 'size': 18, 'httpOnly': False, 'secure': False, 'session': False}, {'name': '_ym_d', 'value': '1585928665', 'domain': '.yandex.ru', 'path': '/', 'expires': 1617464665, 'size': 15, 'httpOnly': False, 'secure': False, 'session': False}, {'name': '_ym_uid', 'value': '1585928665529845996', 'domain': '.yandex.ru', 'path': '/', 'expires': 1617464665, 'size': 26, 'httpOnly': False, 'secure': False, 'session': False}, {'name': 'L', 'value': 'Z0l4aUx0QWpUUXVWC0VQDndiewpzdmdMUB0bNyQLLSccMAFJZw==.1585928670.14191.397383.05957f6cb46d2e963fdf1af777612c43', 'domain': '.yandex.ru', 'path': '/', 'expires': 2147483647.114884, 'size': 110, 'httpOnly': False, 'secure': False, 'session': False}, {'name': 'ymex', 'value': '1901288665.yrts.1585928665#1901288665.yrtsi.1585928665', 'domain': '.yandex.ru', 'path': '/', 'expires': 1617464665.172183, 'size': 58, 'httpOnly': False, 'secure': False, 'session': False}, {'name': 'Session_id', 'value': '3:1585928670.5.0.1585928670082:u5XpwQ:2.1|892202102.0.2|214961.198634.iWTffG4HJ64fGMYBJYcxlb5Ef0M', 'domain': '.yandex.ru', 'path': '/', 'expires': 2147483647.114586, 'size': 107, 'httpOnly': True, 'secure': True, 'session': False}]
+
         self._page = page
-        if self._yacc.cookies is not None:
-            await page.setCookie(*self._yacc.cookies)
-        else:
-            await self._login()
+        await page.setCookie(*cookies)
+        # await self._login()
         try:
             await page.goto('https://wordstat.yandex.ru/?direct=1')
         except Exception:
@@ -535,6 +542,7 @@ class YWordstatClient:
             logger.info('Processing page {}'.format(i))
             try:
                 pages_data.append(await parse_wordstat_page(page))
+                print('after pages_data.appen')
             except TimeoutError:
                 logger.error(format_exc())
                 if await page.evaluate('() => ($(\'.b-history__query:contains("Неверно задан запрос")\').length !== 0)'):

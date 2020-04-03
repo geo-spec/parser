@@ -107,8 +107,8 @@ async def _login():
     )
     # await login_btn.screenshot({'path': 'btn.png'})
     await asyncio.sleep(1)
-    # await login_field.type('golovinisaj83@yandex.ru')
-    await login_field.type('geotips')
+    await login_field.type('golovinisaj83@yandex.ru')
+    # await login_field.type('geotips')
     await asyncio.sleep(1)
     await asyncio.gather(
         login_btn.click(),
@@ -121,8 +121,8 @@ async def _login():
         page.waitForSelector('div.passp-sign-in-button > button.passp-form-button', {'visible': True})
     )
     await asyncio.sleep(1)
-    # await pwd_field.type('d5JCs39o3iK9')
-    await pwd_field.type('ramzes')
+    await pwd_field.type('d5JCs39o3iK9')
+    # await pwd_field.type('ramzes')
 
     await asyncio.sleep(1)
     await asyncio.gather(
@@ -142,7 +142,7 @@ async def _login():
             if phone_field:
                 btn = await page.querySelector('button.button2_type_submit')
                 await phone_field.type('+79319856833')
-                asyncio.sleep(1)
+                await asyncio.sleep(1)
                 await asyncio.gather(
                     btn.click(),
                     page.waitForNavigation()
@@ -167,14 +167,15 @@ async def clear_input_text(page: Page, input_node: ElementHandle):
 
 
 async def main():
-    # await _login()
+    await _login()
     #for i in range(1, 20):
     #    print(i)
     #   words = get_queries()
 
-    # sys.exit()
-    words = get_queries()
-    # sys.exit()
+    sys.exit()
+    # words = get_queries()
+    words = ['рама']
+    # sys.exit'()
     # browser = await launch()
     # page = await browser.newPage()
     # await page.goto('https://direct.yandex.ru/registered/main.pl?cmd=advancedForecast')

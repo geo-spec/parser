@@ -10,17 +10,14 @@ PG_CONN_STR = 'user=postgres password=eipohCa4Ie host=localhost port=5433'
 # import redis
 import psycopg2
 
+print(1111)
+
 
 
 async def _build_core_worker() -> None:
-    redis_conf = RedisConf(
-        host='localhost',
-        db=1,
-        password='Eingae2muo',
-        port = 32768,
-        # decode_responses=True
-    )
-    ws_client = YWordstatClient(redis_conf=redis_conf)
+
+    print('fdsfsd')
+    ws_client = YWordstatClient()
     # loop = asyncio.get_event_loop()
     #
     # def get_conn() -> connection:
@@ -38,7 +35,7 @@ async def _build_core_worker() -> None:
     #         logger.error(traceback.format_exc())
 
     #phrases, asscocs = await ws_client._query('"!как !объединить !ячейки !в !ворде"')
-    phrases, asscocs = await ws_client._query('"!ноутбук"')
+    phrases, asscocs = await ws_client._query('пушка')
 
     # for anchors in iter(input_q.get, 'STOP'):
     #     amount = len(anchors)
@@ -91,4 +88,5 @@ async def _build_core_worker() -> None:
 
 # await _build_core_worker()
 
+print('dsfsdf')
 asyncio.get_event_loop().run_until_complete(_build_core_worker())
